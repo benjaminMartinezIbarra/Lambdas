@@ -111,5 +111,47 @@ fun makeCombines(){
 }
 
 
+fun myFun1(x: Int = 6, y: (Int) -> Int = {7}): Int =
+
+    y(x)
+
+
+
+fun myFun2(x: Int = 6, y: (Int) -> Int = { it }): Unit {
+
+    y(x)
+
+}
+
+fun myFun3(x: Int = 6, y: (Int) -> Int = { x: Int -> x + 6 }): Int {
+
+    return y(x)
+
+}
+
+fun myFun4(x: Int, y: Int,
+
+           z: (Int, Int) -> Int = {
+
+                   x: Int, y: Int -> x + y
+
+           }) {
+
+    z(x, y)
+
+}
+
+fun myFun5(x: (Int) -> Int = {
+
+    println(it)
+
+    it + 7
+
+}) {
+
+    x(4)
+
+}
+
 
 
