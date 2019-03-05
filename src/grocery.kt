@@ -87,12 +87,8 @@ fun main(args: Array<String>) {
 
 }
 
-
-public inline fun <T> Iterable<T>.sumByDouble(selector: (T) -> Double): Double {
-    var sum: Double = 0.0
-    for (element in this) {
-        sum += selector(element)
-    }
+ inline fun <T> Iterable<T>.sumByDouble(selector: (T) -> Double): Double {
+    val sum = this.mapNotNull { selector(it) }.reduce { acc, d -> acc + d }
     return sum
 }
 
